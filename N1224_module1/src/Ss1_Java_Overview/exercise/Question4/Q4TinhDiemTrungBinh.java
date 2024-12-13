@@ -22,7 +22,7 @@ public class Q4TinhDiemTrungBinh {
         double hsAnh = sc.nextDouble();
 
         double diemtrungbinh = (diemToan * hsToan + diemLy * hsLy + diemAnh * hsAnh) /
-                                (hsToan + hsLy + hsAnh);
+                (hsToan + hsLy + hsAnh);
 
         System.out.println("Điểm trung bình :" + diemtrungbinh);
     }
