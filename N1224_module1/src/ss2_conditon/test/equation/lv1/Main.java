@@ -12,7 +12,7 @@ public class Main {
         System.out.print("Nhập vào số b: ");
         double b = sc.nextInt();
 
-
+        //
 
         System.out.println();
     }
