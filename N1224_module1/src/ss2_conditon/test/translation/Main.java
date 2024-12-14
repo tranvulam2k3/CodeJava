@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap vao so 1 den 10: ");
+        System.out.print("Enter number [1:10]: ");
         int n = sc.nextInt();
 
         String englishNumber;
@@ -31,11 +31,9 @@ public class Main {
         } else if (n == 10) {
             englishNumber = "Ten";
         } else {
-            englishNumber = "Khong hop le";
+            englishNumber = "Invalid";
         }
 
-
-
-        System.out.println("tieng anh cua so " + n + ": " + englishNumber);
+        System.out.printf("English of numbers %d is %s", n, englishNumber);
     }
 }

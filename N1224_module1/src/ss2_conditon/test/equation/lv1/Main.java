@@ -12,8 +12,15 @@ public class Main {
         System.out.print("Nhập vào số b: ");
         double b = sc.nextInt();
 
-        //
-
-        System.out.println();
+        if (a == 0) {
+            if (b == 0) {
+                System.out.println("Phương trình vô số nghiệm");
+            } else {
+                System.out.println("Phương trình vô nghiệm");
+            }
+        } else {
+            double x = -b / a;
+            System.out.println("Phương trình có 1 nghiệm duy nhất: " + x);
+        }
     }
 }
