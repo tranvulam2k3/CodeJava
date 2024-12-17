@@ -1,5 +1,7 @@
 package ss5_loop.test;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main4 {
@@ -17,5 +19,6 @@ public class Main4 {
                 }
             }
         }
+        Map<Character, Integer> map = new HashMap<>();
     }
 }
