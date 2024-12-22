@@ -208,13 +208,13 @@ public class Exercise8 {
 
     public static void main(String[] args) {
         nhapThongTinNV1();
-        if (checkYes() == true) {
+        if (checkYes()) {
             nhapThongTinNV2();
-            if (checkYes() == true) {
+            if (checkYes()) {
                 nhapThongTinNV3();
-                if (checkYes() == true) {
+                if (checkYes()) {
                     nhapThongTinNV4();
-                    if (checkYes() == true) {
+                    if (checkYes()) {
                         nhapThongTinNV5();
 
                         xuatThongTinNV1();

@@ -7,10 +7,11 @@ import java.util.Scanner;
 public class Exercise1 {
 
     public static char toLowerCase(char s) {
-        if (s >= 'A' && s <= 'Z') {
-            s += 32;
-        }
-        return s;
+//        if (s >= 'A' && s <= 'Z') {
+//            s += 32;
+//        }
+//        return s;
+        return (char)(s >= 'A' && s <= 'Z' ? s += 32 : s);
     }
 
     public static void giaiPTBN(double a, double b) {
@@ -57,6 +58,15 @@ public class Exercise1 {
         return min;
 
     }
+
+//    public static int min(int ...arr) {
+//        int min = arr[0];
+//        for (int i = 1; i < arr.length; i++) {
+//            min = Math.min(min, arr[i]);
+//        }
+//        return min;
+//
+//    }
 
     public static void main(String[] args) {
         do {

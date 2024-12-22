@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercise6 {
     static String hoTen;
-    static String gioiTinh;
+    static boolean isMale = true;
     static int tuoi;
     static double mucLuong;
     static double diemTrungBinh;
@@ -17,8 +17,22 @@ public class Exercise6 {
         System.out.print("Nhập vào tên: ");
         hoTen = sc.nextLine();
 
-        System.out.print("Nhập vào giới tính: ");
-        gioiTinh = sc.nextLine();
+        int choose;
+        do {
+            System.out.println("=== Gioi Tinh ===");
+            System.out.println("1.Nam");
+            System.out.println("2.Nu");
+
+            System.out.println("Moi ban chon gioi tinh: ");
+            choose = sc.nextInt();
+
+            if (choose != 1 && choose != 2) {
+                System.out.println("Lua chon k hop le , vui long nhap lai!");
+            }
+        } while (choose != 1 && choose != 2);
+
+        boolean isMale = choose == 1;
+
 
         System.out.print("Nhập vào tuổi: ");
         tuoi = sc.nextInt();
@@ -35,7 +49,7 @@ public class Exercise6 {
         System.out.println("Thông tin của bạn là");
         System.out.println("Tên: " + hoTen);
         System.out.println("Tuổi: " + tuoi);
-        System.out.println("Giới tính: " + gioiTinh);
+        System.out.println("Giới tính: " + (isMale ? "Male" : "Female"));
         System.out.println("Mức lương: " + mucLuong);
         System.out.println("Điểm trung bình: " + diemTrungBinh);
 
