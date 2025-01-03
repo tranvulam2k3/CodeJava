@@ -10,7 +10,7 @@ public class DienThoaiCu extends DienThoai implements Discount {
     public DienThoaiCu() {
     }
 
-    public DienThoaiCu(String id, String tenDienThoai, double giaDienThoai, int timeBaoHanh, String hangSanXuat, int tinhTrangPin, String moTaThem) {
+    public DienThoaiCu(String id, String tenDienThoai, BigDecimal giaDienThoai, int timeBaoHanh, String hangSanXuat, int tinhTrangPin, String moTaThem) {
         super(id, tenDienThoai, giaDienThoai, timeBaoHanh, hangSanXuat);
         this.tinhTrangPin = tinhTrangPin;
         this.moTaThem = moTaThem;
@@ -36,14 +36,15 @@ public class DienThoaiCu extends DienThoai implements Discount {
     }
 
     @Override
-    public double calculateTotalPrice() {
+    public BigDecimal calculateTotalPrice() {
         return getGiaDienThoai();
     }
 
     @Override
-    public void applyDiscount(double price) {
-        double discountPrice = getGiaDienThoai() * (1 - price / 100.0);
-        setGiaDienThoai(discountPrice);
+    public void applyDiscount(BigDecimal discountPercentage) {
+        BigDecimal discountFactor = BigDecimal.ONE.subtract(discountPercentage.divide(BigDecimal.valueOf(100)));
+        BigDecimal discountedPrice = getGiaDienThoai().multiply(discountFactor);
+        setGiaDienThoai(discountedPrice);
     }
 
     public int getTinhTrangPin() {

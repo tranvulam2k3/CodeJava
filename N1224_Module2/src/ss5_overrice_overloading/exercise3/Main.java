@@ -12,10 +12,10 @@ public class Main {
     static ArrayList<DienThoai> phone = new ArrayList<>();
 
     static {
-        phone.add(new DienThoaiCu("DTC001", "Iphone 13 Pro Max", 9000000.0, 12, "Apple", 95, "Còn zin"));
-        phone.add(new DienThoaiCu("DTC002", "Iphone 13 Pro", 8900000.0, 12, "Apple", 90, "Mất zin"));
-        phone.add(new DienThoaiMoi("DTM001", "Iphone 16 Pro Max 1T", 90000000.0, 24, "Apple", 30));
-        phone.add(new DienThoaiMoi("DTM002", "Iphone 15 Pro Max", 50000000.0, 24, "Apple", 50));
+        phone.add(new DienThoaiCu("DTC001", "Iphone 13 Pro Max", new BigDecimal("9000000.0"), 12, "Apple", 95, "Còn zin"));
+        phone.add(new DienThoaiCu("DTC002", "Iphone 13 Pro", new BigDecimal("8900000.0"), 12, "Apple", 90, "Mất zin"));
+        phone.add(new DienThoaiMoi("DTM001", "Iphone 16 Pro Max 1T", new BigDecimal("90000000.0"), 24, "Apple", 30));
+        phone.add(new DienThoaiMoi("DTM002", "Iphone 15 Pro Max", new BigDecimal("50000000.0"), 24, "Apple", 50));
     }
 
     public static void main(String[] args) {
@@ -64,7 +64,7 @@ public class Main {
                     break;
                 case 8:
                     System.out.println("NHẬP VÀO PHẦN TRĂM MUỐN GIẢM GIÁ: ");
-                    double percent = Double.parseDouble(sc.nextLine());
+                    BigDecimal percent = new BigDecimal(sc.nextLine());
                     applyDiscountToOldPhone(percent);
                     System.out.println("ĐÃ GIẢM GIÁ !!!!");
                     break;
@@ -129,7 +129,7 @@ public class Main {
                 System.out.println("=============THÊM MỚI ĐIỆN THOẠI=============");
                 System.out.println("1. THÊM MỚI ĐIỆN THOẠI MỚI");
                 System.out.println("2. THÊM MỚI ĐIỆN THOẠI CŨ");
-                System.out.println("4. TRỞ VỀ MENU CHÍNH");
+                System.out.println("3. TRỞ VỀ MENU CHÍNH");
 
                 System.out.print("CHỌN CHỨC NĂNG MUỐN CHỌN: ");
                 choose = Integer.parseInt(sc.nextLine());
@@ -169,7 +169,6 @@ public class Main {
         if (temp != 0) {
             int numberPart = Integer.parseInt(lastId.substring(3));
             numberPart++;
-            System.out.println(numberPart);
             return String.format("DTM%03d", numberPart);
         }
         return "DTM001";
@@ -327,10 +326,10 @@ public class Main {
         System.out.println("============TÌM KIẾM THEO GIÁ ĐIỆN THOẠI================");
         System.out.println("NHẬP VÀO KHOẢNG GIÁ MUỐN TÌM");
         System.out.print("NHẬP VÀO GIÁ TỪ: ");
-        Double minPrice = Double.parseDouble(sc.nextLine());
+        BigDecimal minPrice = new BigDecimal(sc.nextLine());
 
         System.out.print("NHẬP VÀO GIÁ ĐẾN: ");
-        Double maxPrice = Double.parseDouble(sc.nextLine());
+        BigDecimal maxPrice = new BigDecimal(sc.nextLine());
         boolean checkList = false;
         for (DienThoai phones : phone) {
             if (phones.getGiaDienThoai().compareTo(minPrice) >= 0 && phones.getGiaDienThoai().compareTo(maxPrice) <= 0) {
@@ -363,15 +362,15 @@ public class Main {
         }
     }
 
-    public static double moneyPhone() {
-        double sum = 0.0;
+    public static BigDecimal moneyPhone() {
+        BigDecimal sum = BigDecimal.ZERO;
         for (DienThoai phones : phone) {
-            sum += phones.getGiaDienThoai();
+            sum = sum.add(phones.getGiaDienThoai());
         }
         return sum;
     }
 
-    public static void applyDiscountToOldPhone(double money) {
+    public static void applyDiscountToOldPhone(BigDecimal money) {
         for (DienThoai phones : phone) {
             if (phones instanceof DienThoaiCu) {
                 ((DienThoaiCu) phones).applyDiscount(money);

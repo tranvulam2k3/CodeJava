@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class DienThoaiMoi extends DienThoai {
-    private int soLuong;
+    private double soLuong;
 
     public DienThoaiMoi() {
     }
 
-    public DienThoaiMoi(String id, String tenDienThoai, double giaDienThoai, int timeBaoHanh, String hangSanXuat, int soLuong) {
+    public DienThoaiMoi(String id, String tenDienThoai, BigDecimal giaDienThoai, int timeBaoHanh, String hangSanXuat, double soLuong) {
         super(id, tenDienThoai, giaDienThoai, timeBaoHanh, hangSanXuat);
         this.soLuong = soLuong;
     }
@@ -29,11 +29,11 @@ public class DienThoaiMoi extends DienThoai {
     }
 
     @Override
-    public double calculateTotalPrice() {
-        return getGiaDienThoai() * this.soLuong;
+    public BigDecimal calculateTotalPrice() {
+        return getGiaDienThoai().multiply(BigDecimal.valueOf(this.soLuong));
     }
 
-    public int getSoLuong() {
+    public double getSoLuong() {
         return soLuong;
     }
 

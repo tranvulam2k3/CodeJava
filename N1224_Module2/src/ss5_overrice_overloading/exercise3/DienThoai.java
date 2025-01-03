@@ -6,14 +6,14 @@ import java.util.Scanner;
 public abstract class DienThoai {
     private String id;
     private String tenDienThoai;
-    private double giaDienThoai;
+    private BigDecimal giaDienThoai;
     private int timeBaoHanh;
     private String hangSanXuat;
 
     public DienThoai() {
     }
 
-    public DienThoai(String id, String tenDienThoai, double giaDienThoai, int timeBaoHanh, String hangSanXuat) {
+    public DienThoai(String id, String tenDienThoai, BigDecimal giaDienThoai, int timeBaoHanh, String hangSanXuat) {
         this.id = id;
         this.tenDienThoai = tenDienThoai;
         this.giaDienThoai = giaDienThoai;
@@ -28,7 +28,8 @@ public abstract class DienThoai {
         this.tenDienThoai = sc.nextLine();
 
         System.out.print("GIÁ ĐIỆN THOẠI: ");
-        this.giaDienThoai = Double.parseDouble(sc.nextLine());
+        String giaInput = sc.nextLine();
+        this.giaDienThoai = new BigDecimal(giaInput);
 
         System.out.print("THỜI GIAN BẢO HÀNH: ");
         this.timeBaoHanh = Integer.parseInt(sc.nextLine());
@@ -45,7 +46,7 @@ public abstract class DienThoai {
         System.out.println("HÃNG ĐIỆN THOẠI: " + this.hangSanXuat);
     }
 
-    public abstract double calculateTotalPrice();
+    public abstract BigDecimal calculateTotalPrice();
 
     public String getId() {
         return id;
@@ -63,11 +64,11 @@ public abstract class DienThoai {
         this.tenDienThoai = tenDienThoai;
     }
 
-    public Double getGiaDienThoai() {
+    public BigDecimal getGiaDienThoai() {
         return giaDienThoai;
     }
 
-    public void setGiaDienThoai(double giaDienThoai) {
+    public void setGiaDienThoai(BigDecimal giaDienThoai) {
         this.giaDienThoai = giaDienThoai;
     }
 
