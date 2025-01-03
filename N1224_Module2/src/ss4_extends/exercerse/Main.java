@@ -55,10 +55,8 @@ public class Main {
                     deletePhone();
                     break;
                 case 5:
-                    sortByMount();
                     break;
                 case 6:
-
                     break;
                 case 7:
                     break;
@@ -87,25 +85,25 @@ public class Main {
                     case 1:
                         System.out.println("=======DANH SÁCH TẤT CẢ ĐIỆN THOẠI=======");
                         for (int i = 0; i < oldPhonesList.size(); i++) {
-                            System.out.println("===Thông tin điện thoại thứ " + (i + 1));
+                            System.out.println("********Thông tin điện thoại thứ " + (i + 1));
                             oldPhonesList.get(i).output();
                         }
                         for (int i = 0; i < newPhonesList.size(); i++) {
-                            System.out.println("===Thông tin điện thoại thứ " + (i + 1 + oldPhonesList.size()));
+                            System.out.println("********Thông tin điện thoại thứ " + (i + 1 + oldPhonesList.size()));
                             newPhonesList.get(i).output();
                         }
                         break;
                     case 2:
                         System.out.println("=======DANH SÁCH ĐIỆN THOẠI CŨ=======");
                         for (int i = 0; i < oldPhonesList.size(); i++) {
-                            System.out.println("===Thông tin điện thoại thứ " + (i + 1));
+                            System.out.println("********Thông tin điện thoại thứ " + (i + 1));
                             oldPhonesList.get(i).output();
                         }
                         break;
                     case 3:
                         System.out.println("=======DANH SÁCH ĐIỆN THOẠI MỚI=======");
                         for (int i = 0; i < newPhonesList.size(); i++) {
-                            System.out.println("===Thông tin điện thoại thứ " + (i + 1));
+                            System.out.println("********Thông tin điện thoại thứ " + (i + 1));
                             newPhonesList.get(i).output();
                         }
                         break;
@@ -230,35 +228,4 @@ public class Main {
         }
     }
 
-    public static void sortByMount(){
-        while (true) {
-            int choose;
-            do {
-                System.out.println("=============XẮP XẾP ĐIỆN THOẠI THEO GIÁ=============");
-                System.out.println("1. TĂNG DẦN");
-                System.out.println("2. GIẢM DẦN");
-                System.out.println("3. Trở về menu chính");
-
-                System.out.print("Mời bạn lựa chọn: ");
-                choose = Integer.parseInt(sc.nextLine());
-
-                switch (choose) {
-                    case 1:
-                        oldPhonesList.sort(Comparator.comparing(DienThoai::getGiaDienThoai));
-                        newPhonesList.sort(Comparator.comparing(DienThoai::getGiaDienThoai));
-                        System.out.println("Sắp xếp tăng dần thành công!");
-                        break;
-                    case 2:
-                        oldPhonesList.sort(Comparator.comparing(DienThoai::getGiaDienThoai).reversed());
-                        newPhonesList.sort(Comparator.comparing(DienThoai::getGiaDienThoai).reversed());
-                        System.out.println("Sắp xếp giảm dần thành công!");
-                        break;
-                    case 3:
-                        return;
-                    default:
-                        System.out.println("Không có chức năng đó, vui lòng nhập lại !!!!!!");
-                }
-            } while (choose < 1 || choose > 3);
-        }
-    }
 }
