@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Exercise1A {
     public static void main(String[] args) {
-        String str = "Thai Hoang Bao Bao Hoang Thai Thai Bao";
+        String str = "Tran Vu Lam Tran Vu Lam Tran Vu Lam";
 
         Map<String, Integer> wordCount = new HashMap<>();
 
