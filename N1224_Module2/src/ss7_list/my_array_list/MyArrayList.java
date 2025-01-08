@@ -6,6 +6,7 @@ public class MyArrayList {
     private int[] arr;
     private int[] emptyArray = {};
 
+
     public int size() {
         return size;
     }
